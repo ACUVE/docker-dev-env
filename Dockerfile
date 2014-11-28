@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM acuve/docker-encoding-farm
 
 MAINTAINER ACUVE sub_chon@yahoo.co.jp
 
@@ -8,12 +8,12 @@ RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8  
 ENV LANGUAGE en_US:en  
 ENV LC_ALL en_US.UTF-8
-
+ENV USER root
 
 
 # Enable Universe and Multiverse and install dependencies.
 
-RUN echo deb http://archive.ubuntu.com/ubuntu precise universe multiverse >> /etc/apt/sources.list; apt-get update; apt-get -y install autoconf automake build-essential git mercurial cmake libtool pkg-config texi2html wget yasm vim zsh; apt-get clean
+RUN echo deb http://archive.ubuntu.com/ubuntu precise universe multiverse >> /etc/apt/sources.list; apt-get update; apt-get -y install autoconf automake build-essential git mercurial cmake libtool pkg-config texi2html wget yasm vim zsh xfce4 tightvncserver language-pack-ja fonts-vlgothic; apt-get clean
 
 RUN cd /root; git clone --recursive --depth 1  https://github.com/ACUVE/dotfiles; cd /root/dotfiles; ./install.sh
 
