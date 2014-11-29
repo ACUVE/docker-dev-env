@@ -17,7 +17,6 @@ RUN echo deb http://archive.ubuntu.com/ubuntu precise universe multiverse >> /et
 
 # Install dotfiles
 RUN cd /root; git clone --recursive --depth 1  https://github.com/ACUVE/dotfiles; cd /root/dotfiles; ./install.sh
-RUN echo y | vim || echo ok
 
 # Change Default Shell
 RUN chsh -s /bin/zsh
